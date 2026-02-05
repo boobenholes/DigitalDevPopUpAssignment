@@ -177,19 +177,12 @@ Contents:
 
 {% endcomment %}
 
-{% comment %}
-  SECTION: Pop Up Goodr
-  Assets must be in the 'Assets' folder:
-  - desktopimage.jpg
-  - mobileimage.jpg
-  - goodrlogo.png
-{% endcomment %}
 {% style %}
   /* loading Gibson from adobe fonts */
   @import url('https://use.typekit.net/xci7pdj.css');
 
   /* existing styles follow */
-  .goodr-overlay, .goodr-modal {
+  .goodr5-overlay, .goodr5-modal {
     font-family: "canada-type-gibson", sans-serif;
     ...
   }
@@ -198,37 +191,37 @@ Contents:
 
 {%- if section.settings.show_popup -%}
 
-  <div id="goodrPopupOverlay" class="goodr-overlay">
+  <div id="goodr5PopupOverlay" class="goodr5-overlay">
     
-    <div class="goodr-modal">
+    <div class="goodr5-modal">
       
-      <div class="goodr-image-container">
+      <div class="goodr5-image-container">
         <picture>
           <source media="(min-width: 768px)" srcset="{{ 'desktopimage.png' | asset_url }}">
 
           <!-- Mobile image: fixed rendered size 252x342 (set attributes to match displayed size) -->
-          <img src="{{ 'mobileimage.png' | asset_url }}" alt="Promo Background" class="goodr-bg-img" width="252" height="342" loading="eager" decoding="async">
+          <img src="{{ 'mobileimage.png' | asset_url }}" alt="Promo Background" class="goodr5-bg-img" width="252" height="342" loading="eager" decoding="async">
         </picture>
 
-        <div class="goodr-logo-wrapper">
+        <div class="goodr5-logo-wrapper">
           <!-- Mobile logo (150 x 54.16 ~ 54) -->
-          <img class="goodr-logo goodr-logo--mobile" src="{{ 'goodrlogo.png' | asset_url }}" alt="goodr Logo" width="150" height="54" loading="eager" decoding="async">
+          <img class="goodr5-logo goodr5-logo--mobile" src="{{ 'goodrlogo.png' | asset_url }}" alt="goodr Logo" width="150" height="54" loading="eager" decoding="async">
 
           <!-- Desktop logo (200 x 72.21 ~ 72) -->
-          <img class="goodr-logo goodr-logo--desktop" src="{{ 'goodrlogo.png' | asset_url }}" alt="goodr Logo" width="200" height="72" loading="eager" decoding="async">
+          <img class="goodr5-logo goodr5-logo--desktop" src="{{ 'goodrlogo.png' | asset_url }}" alt="goodr Logo" width="200" height="72" loading="eager" decoding="async">
         </div>
       </div>
 
-      <div class="goodr-text-content">
-        <p>USE CODE <span class="goodr-highlight">goodr5</span> FOR $5 OFF YOUR FIRST ORDER</p>
+      <div class="goodr5-text-content">
+        <p>USE CODE <span class="goodr5-highlight">goodr5</span> FOR $5 OFF YOUR FIRST ORDER</p>
       </div>
 
-      <div class="goodr-actions">
-        <button id="goodrShopBtn" class="goodr-btn">
+      <div class="goodr5-actions">
+        <button id="goodr5ShopBtn" class="goodr5-btn">
           SHOP ALL STYLES
         </button>
         
-        <a href="#" id="goodrCloseLink" class="goodr-close-link">Nah, I Hate Deals</a>
+        <a href="#" id="goodr5CloseLink" class="goodr5-close-link">Nah, I Hate Deals</a>
       </div>
 
     </div>
@@ -236,13 +229,13 @@ Contents:
 
   {% style %}
     /* --- FONTS --- */
-    .goodr-overlay, .goodr-modal {
+    .goodr5-overlay, .goodr5-modal {
       font-family: "canada-type-gibson", sans-serif;
       box-sizing: border-box;
     }
 
     /* --- OVERLAY --- */
-    .goodr-overlay {
+    .goodr5-overlay {
       position: fixed;
       top: 0;
       left: 0;
@@ -258,13 +251,13 @@ Contents:
       transition: opacity 0.3s ease;
     }
 
-    .goodr-overlay.is-visible {
+    .goodr5-overlay.is-visible {
       opacity: 1;
       visibility: visible;
     }
 
     /* --- MODAL BOX --- */
-    .goodr-modal {
+    .goodr5-modal {
       background-color: #FFFFFF;
       border: 2px solid #0C2340;
       display: flex;
@@ -274,7 +267,7 @@ Contents:
     }
 
     /* --- MOBILE STYLES (< 768px) --- */
-    .goodr-modal {
+    .goodr5-modal {
       width: 326px;
       height: 550px;
       border-radius: 4px;
@@ -282,7 +275,7 @@ Contents:
       padding-top: 20px;
     }
 
-    .goodr-image-container {
+    .goodr5-image-container {
       position: relative;
       width: 252px;
       height: 342px;
@@ -291,7 +284,7 @@ Contents:
       margin-bottom: 10px;
     }
 
-    .goodr-bg-img {
+    .goodr5-bg-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -318,7 +311,7 @@ Contents:
       .goodr-logo--desktop { display: block; width: 200px; }
     }
 
-    .goodr-text-content {
+    .goodr5-text-content {
       width: 252px;
       text-align: center;
       color: #0C2340;
@@ -329,16 +322,25 @@ Contents:
       margin-bottom: 10px;
     }
 
+    /* stack and center elements */
+    .goodr5-actions {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
     /* Remove default P margins */
-    .goodr-text-content p {
+    .goodr5-text-content p {
         margin: 0;
     }
 
-    .goodr-highlight {
+    .goodr5-highlight {
       color: #E06287;
     }
 
-    .goodr-btn {
+    .goodr5-btn {
       width: 252px;
       height: 40px;
       padding: 12px 81.49px;
@@ -361,24 +363,23 @@ Contents:
       margin-bottom: 10px;
     }
 
-    .goodr-btn:hover {
+    .goodr5-btn:hover {
       transform: translate(-1px, 1px);
       box-shadow: -1px 1px 0px 0px #0C2340;
     }
 
-    .goodr-close-link {
+    .goodr5-close-link {
       font-size: 14px;
       font-weight: 700;
       color: #0C2340;
       text-decoration: underline;
       text-transform: uppercase;
       cursor: pointer;
-      text-align: center;
     }
 
     /* --- DESKTOP STYLES (>= 768px) --- */
     @media (min-width: 768px) {
-      .goodr-modal {
+      .goodr5-modal {
         width: 484px;
         height: 654px;
         border-width: 3px;
@@ -387,19 +388,19 @@ Contents:
         padding-top: 30px;
       }
 
-      .goodr-image-container {
+      .goodr5-image-container {
         width: 374px;
         height: 360px;
       }
 
-      .goodr-text-content {
+      .goodr5-text-content {
         width: 374px;
         font-size: 24px;
         line-height: 28px;
         margin-bottom: 15px;
       }
 
-      .goodr-btn {
+      .goodr5-btn {
         width: 374px;
         height: 42px; 
         padding: 12px 121px;
@@ -409,7 +410,7 @@ Contents:
         margin-bottom: 15px;
       }
 
-      .goodr-close-link {
+      .goodr5-close-link {
         font-size: 18px;
       }
     }
@@ -417,9 +418,9 @@ Contents:
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      const popupOverlay = document.getElementById('goodrPopupOverlay');
-      const shopBtn = document.getElementById('goodrShopBtn');
-      const closeLink = document.getElementById('goodrCloseLink');
+      const popupOverlay = document.getElementById('goodr5PopupOverlay');
+      const shopBtn = document.getElementById('goodr5ShopBtn');
+      const closeLink = document.getElementById('goodr5CloseLink');
 
       // OPEN: After 500ms delay
       setTimeout(() => {

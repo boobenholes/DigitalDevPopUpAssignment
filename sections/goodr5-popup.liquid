@@ -184,6 +184,17 @@ Contents:
   - mobileimage.jpg
   - goodrlogo.png
 {% endcomment %}
+{% style %}
+  /* loading Gibson from adobe fonts */
+  @import url('https://use.typekit.net/xci7pdj.css');
+
+  /* existing styles follow */
+  .goodr-overlay, .goodr-modal {
+    font-family: "canada-type-gibson", sans-serif;
+    ...
+  }
+  ...
+{% endstyle %}
 
 {%- if section.settings.show_popup -%}
 
@@ -226,7 +237,7 @@ Contents:
   {% style %}
     /* --- FONTS --- */
     .goodr-overlay, .goodr-modal {
-      font-family: 'Gibson', sans-serif;
+      font-family: "canada-type-gibson", sans-serif;
       box-sizing: border-box;
     }
 
@@ -336,7 +347,7 @@ Contents:
       box-shadow: -2.75px 2.75px 0px 0px #0C2340;
       cursor: pointer;
       color: #0C2340;
-      font-family: 'Gibson', sans-serif;
+      font-family: "canada-type-gibson", sans-serif;
       font-size: 14px;
       font-weight: 700;
       text-transform: uppercase;

@@ -224,7 +224,7 @@ Contents:
 
       <div class="goodr5-actions">
         <button id="goodr5ShopBtn" class="goodr5-btn">
-        SHOP ALL STYLES
+        <span class="goodr5-btn-text">SHOP ALL STYLES</span>
         </button>
         
         <a href="#" id="goodr5CloseLink" class="goodr5-close-link">Nah, I Hate Deals</a>
@@ -364,8 +364,12 @@ Contents:
       justify-content: center;
       align-items: center;
       margin-bottom: 16px;
-      outline: 1px solid #0C2340;
-      /* outline-offset: -3px; */
+    }
+
+    .goodr5-btn-text {
+      border: 1px solid #0C2340;
+      padding: 4px 8px;
+      display: inline-block;
     }
 
     .goodr5-btn:hover {
@@ -446,8 +450,11 @@ Contents:
         font-size: 18px;
         margin-bottom: 18px;
         text-shadow: -2.75px 2.75px 0 #0C2340;
-        outline: 1px solid #0C2340;
-        outline-offset: -4px;
+      }
+
+      .goodr5-btn-text {
+        border: 1px solid #0C2340;
+        padding: 6px 10px;
       }
 
       .goodr5-close-link {

@@ -306,14 +306,14 @@ Contents:
     }
     
     /* Default: show mobile logo, hide desktop logo */
-    .goodr-logo { height: auto; display: none; }
-    .goodr-logo--mobile { display: block; width: 150px; }
+    .goodr-logo { display: none; }
+    .goodr-logo--mobile { display: block; width: 150px; height: 54px; }
     .goodr-logo--desktop { display: none; }
 
     @media (min-width: 768px) {
       /* On desktop show the desktop logo with specified size */
       .goodr-logo--mobile { display: none; }
-      .goodr-logo--desktop { display: block; width: 200px; }
+      .goodr-logo--desktop { display: block; width: 200px; height: 72px; }
     }
 
     .goodr5-text-content {

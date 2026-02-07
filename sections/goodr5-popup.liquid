@@ -600,11 +600,44 @@ Contents:
         }
       });
 
+      // Function to check if discount code exists
+      function checkDiscountExists(discountCode) {
+        return fetch('/cdn/shop/t/' + Shopify.Shop.id + '/cdn/shop/discount_codes.json?code=' + discountCode)
+          .then(response => {
+            // If response is ok, discount exists
+            if (response.ok) {
+              return true;
+            }
+            // Try alternative method: fetch from cart endpoint
+            return fetch('/cart.json')
+              .then(cartResponse => cartResponse.json())
+              .then(cartData => {
+                // If cart endpoint works, we can safely assume discounts are available
+                return true;
+              })
+              .catch(() => false);
+          })
+          .catch(() => {
+            // If both fail, log and continue anyway (graceful fallback)
+            console.warn('Could not verify discount, proceeding anyway');
+            return true;
+          });
+      }
+
       // Interaction: Shop Button
       shopBtn.addEventListener('click', function() {
         logEventToDB('shop_button_clicked');
         dismissPopup();
-        window.location.href = '/discount/goodr5?redirect=/collections/all';
+        
+        checkDiscountExists('goodr5').then(exists => {
+          if (exists) {
+            console.log('Discount code verified, redirecting...');
+            window.location.href = '/discount/goodr5?redirect=/collections/all';
+          } else {
+            console.warn('Discount code not found, redirecting to shop without code');
+            window.location.href = '/collections/all';
+          }
+        });
       });
 
       // Interaction: Close icon

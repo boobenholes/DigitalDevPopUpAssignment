@@ -296,7 +296,11 @@ Contents:
     }
     
     /* Default: show mobile logo, hide desktop logo */
-    .goodr-logo { display: none; }
+    .goodr-logo { 
+      display: none;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
     .goodr-logo--mobile { display: block; width: 150px; height: 54.16px; }
     .goodr-logo--desktop { display: none; }
 
